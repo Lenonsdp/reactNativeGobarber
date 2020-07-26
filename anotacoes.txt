@@ -1,0 +1,9 @@
+Inicia o projeto react-native
+Instalação do react-navigation versão 4
+
+yarn add react-native-linear-gradient
+yarn add styled-components
+
+yarn add prop-types
+
+yarn add react-native-vector-icons
