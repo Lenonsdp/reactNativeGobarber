@@ -37,11 +37,11 @@ export default function SignIn({ navigation }) {
 						placeholder="Digite sua senha"
 					/>
 
-					<SubmitButton onPress={() => {}} >Acessar</SubmitButton>
+					<SubmitButton onPress={() => {}} >Cadastrar</SubmitButton>
 				</Form>
 
-				<SignLink onPress={() => navigation.navigate('SignUp')}>
-					<SignLinkText>Criar conta gratuita</SignLinkText>
+				<SignLink onPress={() => navigation.navigate('SignIn')}>
+					<SignLinkText>Ja tenho conta</SignLinkText>
 				</SignLink>
 			</Container>
 		</Background>
