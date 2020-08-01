@@ -1,4 +1,4 @@
-import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { takeLatest, call, put, all, delay } from 'redux-saga/effects';
 import { Alert } from 'react-native';
 import api from '../../../services/api';
 
@@ -20,10 +20,10 @@ export function* signIn({ payload }) {
         }
 
         api.defaults.headers.Authorization = `Bearer ${token}`;
-
+    
         yield put(signInSuccess(token, user));
 
-        history.push('/dashboard');
+        // history.push('/dashboard');
     } catch (error) {
         Alert.alert('Erro no login', 'Erro na autenticação, verifique seus dados!');
         yield put(signFailure());
@@ -36,8 +36,7 @@ export function* signUp({ payload }) {
         yield call(api.post, 'users', {
             name,
             email,
-            password,
-            provider: true,
+            password
         });
 
         // history.push('/');
