@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Background from '../../components/background';
-import { Container, Title, Separator, Form, FormInput, SubmitButton } from './styles';
-import { updateProfileRequest } from '../../store/modules/user/actions'
+import { Container, Title, Separator, Form, FormInput, SubmitButton, LogoutButton } from './styles';
+import { signOut } from '../../store/modules/auth/actions';
+import { updateProfileRequest } from '../../store/modules/user/actions';
 export default function Profile(){
 	const dispatch = useDispatch();
 	const profile = useSelector(state => state.user.profile)
@@ -21,6 +22,10 @@ export default function Profile(){
 			password,
 			confirmPassword
 		}))
+	}
+
+	function handleLogout() {
+		dispatch(signOut());
 	}
 
 	useEffect(() => {
@@ -81,6 +86,7 @@ export default function Profile(){
 				/>
 
 				<SubmitButton onPress={handleSubmit}>Atualizar perfil</SubmitButton>
+				<LogoutButton onPress={handleLogout}>Sair</LogoutButton>
 			</Form>
 		</Container>
 	</Background>
